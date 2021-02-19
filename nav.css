@@ -1,8 +1,13 @@
 nav {
+  display: flex;
+  justify-content: center;
   height: 8vh;
-  background: white;
+  background: #1d1d1d;
 }
 
+nav img {
+  padding: 0.8rem 3rem 0.8rem 3rem;
+}
 .nav-links {
   display: flex;
   list-style: none;
@@ -15,9 +20,14 @@ nav {
 
 .nav-links li a {
   text-decoration: none;
-  font-size: 14px;
-  font-family: "Roboto", sans-serif;
-  color: rgb(51, 51, 51);
+  font-size: 12px;
+  font-family: "Poppins", sans-serif;
+  letter-spacing: 3px;
+  color: rgb(228, 228, 228);
+}
+
+.nav-links a:hover {
+  color: #ff0055;
 }
 
 .landing {
@@ -28,37 +38,39 @@ nav {
 }
 
 @media screen and (max-width: 768px) {
+  nav {
+    height: 10vh;
+  }
+
   .line {
     width: 30px;
     height: 3px;
-    background: #1d1d1d;
+    background: #e4e4e4;
     margin: 5px;
-  }
-  nav {
-    position: relative;
   }
 
   .hamburger {
     position: absolute;
     cursor: pointer;
     right: 5%;
-    top: 50%;
+    top: 5%;
     transform: translate(-5%, -50%);
     z-index: 20;
   }
 
   .nav-links {
     position: fixed;
-    background: white;
+    background: #1d1d1d;
     height: 100vh;
     width: 100%;
     flex-direction: column;
-    clip-path: circle(100px at 90% -10%);
+    clip-path: circle(100px at 90% -20%);
     -webkit-clip-path: circle(100px at 90% -10%);
     transition: all 1s ease-out;
     pointer-events: none;
     z-index: 10;
   }
+
   .nav-links.open {
     clip-path: circle(1000px at 90% -10%);
     -webkit-clip-path: circle(1000px at 90% -10%);
@@ -85,5 +97,9 @@ nav {
   }
   li.fade {
     opacity: 1;
+  }
+
+  .nav-links li a {
+    font-size: 18px;
   }
 }

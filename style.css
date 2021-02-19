@@ -7,28 +7,71 @@
 body {
   font-family: "Roboto", sans-serif;
   letter-spacing: 8px;
-  color: rgb(51, 51, 51);
+  background: #1d1d1d;
+  color: white;
 }
 
 h2 {
   font-family: "Poppins", sans-serif;
 }
-button {
-  font-family: "Poppins", sans-serif;
-}
-h4 {
-  font-family: "Poppins", sans-serif;
-  letter-spacing: 3px;
-}
+
 path,
 i,
 svg {
   pointer-events: none;
 }
+
+/* Text fade webkit */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-moz-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-o-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-ms-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
 .colours {
-  min-height: 70vh;
   display: flex;
   color: #d8d6e9;
+  border-top: 3px solid white;
+  border-bottom: 3px solid white;
 }
 
 .colour {
@@ -52,7 +95,7 @@ svg {
   flex-direction: column;
   position: absolute;
   bottom: 0%;
-  background: rgb(255, 255, 255);
+  background: #1d1d1d;
   opacity: 0;
   padding: 1rem;
   width: 80%;
@@ -62,8 +105,15 @@ svg {
 
   transform: translateY(100px);
   transition: all 0.5s ease-in-out;
-  color: #2f2f2f;
+  color: white;
 }
+
+.hue-input,
+.sat-input,
+.bright-input {
+  border: 2px solid white;
+}
+
 .sliders.active {
   opacity: 1;
   transform: translateY(0px);
@@ -78,8 +128,8 @@ svg {
   padding: 0.5rem;
   border: none;
   border-top-right-radius: 1rem;
-  color: rgb(63, 68, 133);
-  background: none;
+  color: white;
+  background: #1d1d1d;
   cursor: pointer;
   font-weight: bold;
 }
@@ -89,11 +139,12 @@ svg {
   font-style: 1.2rem;
   margin: 1rem;
   padding: 1rem 2rem;
-  background: rgb(31, 33, 63);
+  background: #1d1d1d;
   border: none;
   color: white;
   cursor: pointer;
   border-radius: 1rem;
+  border: 2px solid white;
 }
 
 .clear-palettes {
@@ -102,13 +153,17 @@ svg {
   padding: 0.7rem;
   cursor: pointer;
   font-size: 1.2r;
-  background: rgb(31, 33, 63);
+  background: #1d1d1d;
   color: white;
   margin: 1rem;
+  border: 2px solid white;
 }
 
 input.save-name {
-  border-color: #2f2f2f;
+  border: 2px solid white;
+  background: #0e0e0e;
+  color: white;
+  border-radius: 1rem;
 }
 
 .save-popup h4 {
@@ -121,9 +176,24 @@ input.save-name {
 
 .message {
   align-items: center;
-  justify-content: space-evenly;
-  height: 8vh;
-  background: purple;
+  justify-content: center;
+  text-align: center;
+  padding: 25px;
+  min-height: 8vh;
+  background: #1d1d1d;
+  font-size: 1.2rem;
+  letter-spacing: 1.5;
+  animation: fadeIn ease 1s;
+  -webkit-animation: fadeIn ease 1s;
+}
+
+pink {
+  color: #ff0055;
+  font-weight: 600;
+}
+
+.message i {
+  color: #ff0055;
 }
 
 .panel {
@@ -134,13 +204,14 @@ input.save-name {
 }
 
 .panel button {
-  font-style: 1.2rem;
+  font-size: 1rem;
   margin: 1rem;
   padding: 1rem 2rem;
-  background: #1d1d1d;
+  background: #0e0e0e;
   border: none;
-  color: white;
+  color: #ff0055;
   cursor: pointer;
+  border: 2px solid white;
   border-radius: 1rem;
 }
 .panel p {
@@ -189,7 +260,8 @@ input[type="range"] {
 }
 
 .cleared-popup {
-  background: white;
+  background: #1d1d1d;
+
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -230,7 +302,7 @@ input[type="range"] {
 .copy-popup,
 .save-popup,
 .library-popup {
-  background: white;
+  background: #1d1d1d;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -304,15 +376,23 @@ input[type="range"] {
   padding: 1rem;
   cursor: pointer;
   font-size: 1.2r;
-  background: rgb(31, 33, 63);
+  background: #1d1d1d;
   color: white;
   margin-left: 2rem;
+  border: 3px solid white;
 }
 
 @media only screen and (max-width: 600px) {
+  p {
+    font-size: 1px;
+  }
   .colours {
     display: flex;
     flex-direction: column;
+  }
+
+  .mesage {
+    letter-spacing: normal;
   }
 
   .libary-popup,
@@ -350,7 +430,8 @@ input[type="range"] {
   .colour {
     display: flex;
     flex-direction: row;
-    max-height: 11rem;
+    min-height: 5.5rem;
+
     padding: 0;
     margin: 0;
   }
@@ -360,8 +441,8 @@ input[type="range"] {
     cursor: pointer;
   }
 
-  .controls i {
-    font-size: 1rem;
+  .controls {
+    display: none;
   }
 
   .panel {
