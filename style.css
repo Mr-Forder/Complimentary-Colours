@@ -1,0 +1,400 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  letter-spacing: 8px;
+  color: rgb(51, 51, 51);
+}
+
+h2 {
+  font-family: "Poppins", sans-serif;
+}
+button {
+  font-family: "Poppins", sans-serif;
+}
+h4 {
+  font-family: "Poppins", sans-serif;
+  letter-spacing: 3px;
+}
+path,
+i,
+svg {
+  pointer-events: none;
+}
+.colours {
+  min-height: 70vh;
+  display: flex;
+  color: #d8d6e9;
+}
+
+.colour {
+  display: flex;
+  height: 70vh;
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  position: relative;
+  overflow: hidden;
+}
+
+.colour h2 {
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+.sliders {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  bottom: 0%;
+  background: rgb(255, 255, 255);
+  opacity: 0;
+  padding: 1rem;
+  width: 80%;
+  border-top-right-radius: 1rem;
+  border-top-left-radius: 1rem;
+  pointer-events: none;
+
+  transform: translateY(100px);
+  transition: all 0.5s ease-in-out;
+  color: #2f2f2f;
+}
+.sliders.active {
+  opacity: 1;
+  transform: translateY(0px);
+  pointer-events: all;
+}
+.sliders button,
+.save-close,
+.close-library {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 0.5rem;
+  border: none;
+  border-top-right-radius: 1rem;
+  color: rgb(63, 68, 133);
+  background: none;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.submit-save,
+.okay {
+  font-style: 1.2rem;
+  margin: 1rem;
+  padding: 1rem 2rem;
+  background: rgb(31, 33, 63);
+  border: none;
+  color: white;
+  cursor: pointer;
+  border-radius: 1rem;
+}
+
+.clear-palettes {
+  border: none;
+  border-radius: 0.8rem;
+  padding: 0.7rem;
+  cursor: pointer;
+  font-size: 1.2r;
+  background: rgb(31, 33, 63);
+  color: white;
+  margin: 1rem;
+}
+
+input.save-name {
+  border-color: #2f2f2f;
+}
+
+.save-popup h4 {
+  padding: 2rem;
+}
+.controls {
+  display: flex;
+  flex-direction: column;
+}
+
+.message {
+  align-items: center;
+  justify-content: space-evenly;
+  height: 8vh;
+  background: purple;
+}
+
+.panel {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  height: 12vh;
+}
+
+.panel button {
+  font-style: 1.2rem;
+  margin: 1rem;
+  padding: 1rem 2rem;
+  background: #1d1d1d;
+  border: none;
+  color: white;
+  cursor: pointer;
+  border-radius: 1rem;
+}
+.panel p {
+  font-size: 1.2rem;
+}
+.library-panel,
+.generate-panel,
+.save-panel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.adjust,
+.lock {
+  font-size: 1.5rem;
+  border: none;
+  background: none;
+  cursor: pointer;
+  margin: 2rem 0rem;
+}
+
+/*Slider Bits*/
+input[type="range"] {
+  -webkit-appearance: none;
+  margin: 1rem 0rem;
+  width: 100%;
+  position: relative;
+  border-radius: 1rem;
+  cursor: pointer;
+}
+
+.cleared-container {
+  position: fixed;
+  top: 0%;
+  left: 0%;
+  background: rgb(0, 0, 0, 0.5);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.5s ease-in-out;
+}
+
+.cleared-popup {
+  background: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  border-radius: 1em;
+  transition: transform 1.5s ease;
+  transform: translateY(-2rem);
+  min-width: 30%;
+  min-height: 30vh;
+}
+
+.cleared-container.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.cleared-popup.active {
+  transform: translateY(0rem);
+}
+
+.copy-container,
+.save-container,
+.library-container {
+  position: fixed;
+  top: 0%;
+  left: 0%;
+  background: rgb(0, 0, 0, 0.5);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.5s ease-in-out;
+}
+
+.copy-popup,
+.save-popup,
+.library-popup {
+  background: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  border-radius: 1em;
+  transition: transform 1.5s ease;
+  transform: translateY(-2rem);
+  min-width: 30%;
+  min-height: 30vh;
+}
+
+.copy-popup i,
+.save-popup i,
+.library-popup i {
+  font-size: 3rem;
+  padding: 2rem;
+}
+
+.copy-container.active,
+.save-container.active,
+.library-container.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.copy-popup.active,
+.save-popup.active,
+.library-popup.active {
+  transform: translateY(0rem);
+}
+
+.save-name {
+  font-size: 1.5rem;
+  padding: 1rem;
+}
+
+.library-popup {
+  min-width: 25%;
+  padding: 1rem;
+
+  justify-content: flex-start;
+}
+
+.custom-palette {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 100%;
+  padding: 2rem;
+}
+
+.small-preview {
+  display: flex;
+  flex: 1;
+}
+
+.small-preview div {
+  min-height: 5rem;
+  flex: 1;
+}
+
+.custom-palette h4 {
+  flex: 1;
+  padding-left: 8rem;
+}
+
+.pick-palette-btn {
+  height: 5rem;
+  border: none;
+  border-radius: 0.8rem;
+  padding: 1rem;
+  cursor: pointer;
+  font-size: 1.2r;
+  background: rgb(31, 33, 63);
+  color: white;
+  margin-left: 2rem;
+}
+
+@media only screen and (max-width: 600px) {
+  .colours {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .libary-popup,
+  .libary-popup.active {
+    width: 85vw;
+  }
+
+  .panel {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    margin: 1rem;
+  }
+
+  .sliders {
+    flex-direction: column;
+    padding: 0.25rem;
+    width: 95%;
+  }
+
+  .sliders span {
+    color: #333 !important;
+  }
+
+  .sliders.active {
+    height: 100%;
+    flex-direction: column;
+  }
+  .sliders input,
+  input[type="range"] {
+    width: 100% !important;
+  }
+
+  .colour {
+    display: flex;
+    flex-direction: row;
+    max-height: 11rem;
+    padding: 0;
+    margin: 0;
+  }
+
+  .colour h2 {
+    font-size: 1rem;
+    cursor: pointer;
+  }
+
+  .controls i {
+    font-size: 1rem;
+  }
+
+  .panel {
+    padding-bottom: 1rem;
+  }
+  .panel p {
+    font-size: 1rem;
+    letter-spacing: normal;
+  }
+
+  .sliders {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    bottom: 0%;
+    background: rgb(255, 255, 255);
+    opacity: 0;
+    padding: 1rem;
+    width: 100%;
+    border-radius: 0;
+    background: #1d1d1d;
+  }
+  .sliders span {
+    display: none;
+  }
+  .sliders .close-adjustment {
+    color: white;
+  }
+
+  .copy-popup,
+  .save-popup,
+  .library-popup,
+  .cleared-popup {
+    min-width: 90%;
+  }
+}
