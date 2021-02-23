@@ -6,7 +6,7 @@
 
 body {
   font-family: "Roboto", sans-serif;
-  letter-spacing: 8px;
+  letter-spacing: 4px;
   background: #1d1d1d;
   color: white;
 }
@@ -21,57 +21,9 @@ svg {
   pointer-events: none;
 }
 
-/* Text fade webkit */
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
-@-moz-keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
-@-webkit-keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
-@-o-keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
-@-ms-keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
 .colours {
   display: flex;
   color: #d8d6e9;
-  border-top: 3px solid white;
-  border-bottom: 3px solid white;
 }
 
 .colour {
@@ -83,6 +35,7 @@ svg {
   justify-content: space-evenly;
   position: relative;
   overflow: hidden;
+  box-shadow: inset 3px 4px 5px black;
 }
 
 .colour h2 {
@@ -183,8 +136,6 @@ input.save-name {
 
   font-size: 1.2rem;
   letter-spacing: 1.5;
-  animation: fadeIn ease 1s;
-  -webkit-animation: fadeIn ease 1s;
 }
 
 pink {
@@ -383,16 +334,12 @@ input[type="range"] {
 }
 
 @media only screen and (max-width: 600px) {
-  p {
-    font-size: 1px;
+  .message p {
+    font-size: 1.5rem;
   }
   .colours {
     display: flex;
     flex-direction: column;
-  }
-
-  .mesage {
-    letter-spacing: normal;
   }
 
   .libary-popup,
@@ -477,75 +424,5 @@ input[type="range"] {
   .library-popup,
   .cleared-popup {
     min-width: 90%;
-  }
-
-  .box-area {
-    display: none;
-  }
-}
-
-.box-area {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  z-index: -1;
-}
-.box-area li {
-  position: absolute;
-  display: block;
-  list-style: none;
-  width: 25px;
-  height: 25px;
-  animation: animate 2s linear infinite;
-  bottom: -150px;
-}
-.box-area li:nth-child(1) {
-  left: 86%;
-  width: 80px;
-  height: 80px;
-  animation-delay: 0s;
-}
-.box-area li:nth-child(2) {
-  left: 12%;
-  width: 30px;
-  height: 30px;
-  animation-delay: 0.5s;
-  animation-duration: 3s;
-}
-.box-area li:nth-child(3) {
-  left: 70%;
-  width: 100px;
-  height: 100px;
-}
-.box-area li:nth-child(4) {
-  left: 42%;
-  width: 150px;
-  height: 150px;
-  animation-delay: 0.2s;
-  animation-duration: 2s;
-}
-.box-area li:nth-child(5) {
-  left: 65%;
-  width: 40px;
-  height: 40px;
-  animation-delay: 0s;
-}
-.box-area li:nth-child(6) {
-  left: 15%;
-  width: 110px;
-  height: 110px;
-  animation-delay: 0.7s;
-}
-@keyframes animate {
-  0% {
-    transform: translateY(0) rotate(0deg);
-    opacity: 1;
-  }
-  100% {
-    transform: translateY(-1000px) rotate(360deg);
-    opacity: 0.5;
   }
 }

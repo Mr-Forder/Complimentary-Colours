@@ -26,6 +26,28 @@ function clearLocalStorage() {
   openCleared();
 }
 
+//message
+//get our message div
+const message = document.querySelector(".message");
+//message array
+const compItems = [
+  `<p><i class="fas fa-quote-left"></i> Wow! That's a good one! <i class="fas fa-quote-right"></i></p>`,
+  `<p><i class="fas fa-quote-left"></i> Have you done something with your hair? <i class="fas fa-quote-right"></i></p>`,
+  `<p><i class="fas fa-quote-left"></i> Gorgeous! <i class="fas fa-quote-right"></i></p>`,
+  `<p><i class="fas fa-quote-left"></i> Beautiful! <i class="fas fa-quote-right"></i></p>`,
+];
+//function to return a random element from our compItems
+function compGen() {
+  return compItems[Math.floor(Math.random() * compItems.length)];
+}
+compGen();
+//add event listener to existing elements
+generateBtn.addEventListener("click", () => {
+  message.innerHTML = compGen();
+});
+
+//
+
 okayBtn = document.querySelector(".okay");
 okayBtn.addEventListener("click", reload);
 
