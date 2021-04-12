@@ -10,6 +10,14 @@ const closeAdjustments = document.querySelectorAll(".close-adjustment"); //grab 
 const slideContainers = document.querySelectorAll(".sliders"); //grab sliders
 const clearBtn = document.querySelector(".clear-palettes");
 
+const hearts = document.querySelector(".animation-area");
+
+async function aniStart() {
+  hearts.classList.add("heart-ani");
+  await new Promise((resolve) => setTimeout(resolve, 1500)); //
+  hearts.classList.remove("heart-ani");
+}
+
 let initialColours;
 //object creation for local storage
 
@@ -35,6 +43,29 @@ const compItems = [
   `<p><i class="fas fa-quote-left"></i> Have you done something with your hair? <i class="fas fa-quote-right"></i></p>`,
   `<p><i class="fas fa-quote-left"></i> Gorgeous! <i class="fas fa-quote-right"></i></p>`,
   `<p><i class="fas fa-quote-left"></i> Beautiful! <i class="fas fa-quote-right"></i></p>`,
+  `<p><i class="fas fa-quote-left"></i> Amazing! <i class="fas fa-quote-right"></i></p>`,
+  `<p><i class="fas fa-quote-left"></i> Phwoar! <i class="fas fa-quote-right"></i></p>`,
+  `<p><i class="fas fa-quote-left"></i> That one goes with your eyes! <i class="fas fa-quote-right"></i></p>`,
+  `<p><i class="fas fa-quote-left"></i> nice! <i class="fas fa-quote-right"></i></p>`,
+  `<p><i class="fas fa-quote-left"></i> That's a good one! <i class="fas fa-quote-right"></i></p>`,
+  `<p><i class="fas fa-quote-left"></i> nice! <i class="fas fa-quote-right"></i></p>`,
+  `<p><i class="fas fa-quote-left"></i> OMG so cool! <i class="fas fa-quote-right"></i></p>`,
+  `<p><i class="fas fa-quote-left"></i> Why won't you look at me when we make love!?! <i class="fas fa-quote-right"></i></p>`,
+  `<p><i class="fas fa-quote-left"></i> Oh God please don't leave me. <i class="fas fa-quote-right"></i></p>`,
+  `<p><i class="fas fa-quote-left"></i> Please don't go! <i class="fas fa-quote-right"></i></p>`,
+  `<p><i class="fas fa-quote-left"></i> I can't liiiiiiveeee, if livin' is without yoooooooou! <i class="fas fa-quote-right"></i></p>`,
+  `<p><i class="fas fa-quote-left"></i> nice! <i class="fas fa-quote-right"></i></p>`,
+  `<p><i class="fas fa-quote-left"></i> Beautiful! just like you. <i class="fas fa-quote-right"></i></p>`,
+  `<p><i class="fas fa-quote-left"></i> I just want you to love me! Is that too much to ask? <i class="fas fa-quote-right"></i></p>`,
+  `<p><i class="fas fa-quote-left"></i> Great combination! <i class="fas fa-quote-right"></i></p>`,
+  `<p><i class="fas fa-quote-left"></i> That blue is like an azure sky. <i class="fas fa-quote-right"></i></p>`,
+  `<p><i class="fas fa-quote-left"></i> You have such beautiful eyes. Can I touch them?<i class="fas fa-quote-right"></i></p>`,
+  `<p><i class="fas fa-quote-left"></i> I love these ones! <i class="fas fa-quote-right"></i></p>`,
+  `<p><i class="fas fa-quote-left"></i> Really good choice! <i class="fas fa-quote-right"></i></p>`,
+  `<p><i class="fas fa-quote-left"></i> Perfect! <i class="fas fa-quote-right"></i></p>`,
+  `<p><i class="fas fa-quote-left"></i> Stunning. Just like you. <i class="fas fa-quote-right"></i></p>`,
+  `<p><i class="fas fa-quote-left"></i> Yeah! <i class="fas fa-quote-right"></i></p>`,
+  `<p><i class="fas fa-quote-left"></i> I like that one! <i class="fas fa-quote-right"></i></p>`,
 ];
 //function to return a random element from our compItems
 function compGen() {
@@ -78,6 +109,8 @@ lockButton.forEach((button, index) => {
 document.addEventListener("keyup", (event) => {
   if (event.code === "Space") {
     randomColours();
+    aniStart();
+    compGen();
   }
 });
 //disable spacebar scroll
@@ -89,6 +122,8 @@ window.onkeydown = function (e) {
 };
 
 generateBtn.addEventListener("click", randomColours);
+
+generateBtn.addEventListener("click", aniStart);
 
 sliders.forEach((slider) => {
   slider.addEventListener("input", hslControls);
@@ -312,6 +347,7 @@ function savePalette(e) {
   const colours = [];
   currentHexes.forEach((hex) => {
     colours.push(hex.innerText);
+    message.innerText = `Pallete saved!`;
   });
   //Generate Obj
 

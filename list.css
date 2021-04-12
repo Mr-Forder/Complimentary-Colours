@@ -1,0 +1,181 @@
+form {
+  min-height: 10vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.todo-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.todo li {
+  flex: 1;
+}
+
+.trash-btn,
+.complete-btn {
+  color: white;
+  padding: 1rem;
+  cursor: pointer;
+  font-size: 1rem;
+  border: 0px;
+}
+
+.todo-item {
+  padding: 0rem 0.5rem;
+}
+
+.todo {
+  background: #d62841;
+}
+
+.fa-trash,
+.fa-check {
+  pointer-events: none;
+}
+
+.completed {
+  text-decoration: line-through;
+  opacity: 0.5;
+}
+
+.fall {
+  transform: translateY(8rem);
+  opacity: 0;
+}
+
+/*CUSTOM SELECTOR */
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  outline: 0;
+  box-shadow: none;
+  border: 0 !important;
+  background-image: none;
+}
+
+/* Custom Select */
+.select {
+  margin: 1rem;
+  position: relative;
+  overflow: hidden;
+}
+select {
+  color: #ff6f47;
+  font-family: "Poppins", sans-serif;
+  cursor: pointer;
+  width: 12rem;
+  padding: 1rem;
+}
+/* Arrow */
+.select::after {
+  content: "\25BC";
+  position: absolute;
+  background: #d62841;
+  top: 0;
+  right: 0;
+  padding: 1rem;
+  pointer-events: none;
+  transition: all 0.3s ease;
+}
+
+.select:hover::after {
+  background: white;
+  color: #ff6f47;
+}
+
+.filter-todo {
+  background: #d62841;
+  color: white;
+
+  border-radius: 5px;
+}
+
+.todo {
+  margin: 0.5rem;
+  background: #ff0049;
+  font-size: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.5s ease;
+  width: 95%;
+  overflow: auto;
+}
+
+.complete-btn,
+.trash-btn,
+.todo-item {
+  border: none;
+  font-family: "Ubuntu", sans-serif;
+  overflow: hidden;
+  background: transparent;
+}
+
+.todo-input {
+  color: white;
+  font-family: "Armata", sans-serif;
+  font-size: 1rem;
+  background-color: #000000;
+  width: 100%;
+  padding: 20px;
+  border: 1px white solid;
+}
+
+.todo-button {
+  color: white;
+  font-size: 1rem;
+  padding: 20px;
+  border: 1px solid white;
+  background: #ff0049;
+}
+
+.todo-list {
+  min-width: 95%;
+  max-width: 90%;
+  list-style: none;
+  font-size: 1rem;
+}
+
+form input,
+form button {
+  font-size: 1rem;
+  border: none;
+}
+
+form button {
+  color: #ffffff;
+  background: #ff003b;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
+}
+
+form button :hover {
+  background: white;
+  color: #d62841;
+  transition: all 0.3s ease;
+}
+
+@media screen and (max-width: 600px) {
+  .todo-input,
+  .todo {
+    font-size: 1rem;
+    width: 90%;
+  }
+
+  .todo-input {
+    min-width: 90%;
+    max-width: 90%;
+  }
+
+  .todo-list {
+    min-width: 100%;
+    max-width: 100%;
+  }
+}

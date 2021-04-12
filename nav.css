@@ -1,11 +1,13 @@
 nav {
   display: flex;
   justify-content: center;
-  height: 8vh;
+  height: 10vh;
+  /* border-bottom: 1px white solid; */
+  /* box-shadow: 3px 4px 5px black; */
 }
 
 nav img {
-  padding: 0.8rem 3rem 0.8rem 3rem;
+  padding: 1rem;
 }
 .nav-links {
   display: flex;
@@ -23,6 +25,7 @@ nav img {
   font-family: "Poppins", sans-serif;
   letter-spacing: 3px;
   color: rgb(228, 228, 228);
+  font-weight: bold;
 }
 
 .nav-links a:hover {
@@ -38,7 +41,8 @@ nav img {
 
 @media screen and (max-width: 768px) {
   nav {
-    height: 10vh;
+    padding-top: 0.7rem;
+    height: 12vh;
   }
 
   .line {
