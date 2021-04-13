@@ -2,6 +2,7 @@ nav {
   display: flex;
   justify-content: center;
   height: 10vh;
+  overflow: hidden;
   /* border-bottom: 1px white solid; */
   /* box-shadow: 3px 4px 5px black; */
 }
